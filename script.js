@@ -48,16 +48,21 @@
 // getjoke();
 // // getJoke2();
 // getJoke3();
+let sub = document.querySelector("input").value;
 
-let link = fetch("https://www.reddit.com/r/aww/.json");
+// let link = fetch("https://www.reddit.com/r/aww/.json");
+let link = fetch(`https://www.reddit.com/r/${sub}/.json`);
 
 const getReddit = async () => {
     let fetchIt = await link;
     let data = await fetchIt.json();
     
     let postArray = data.data.children;
-    // console.log(postArray);
-    
+    console.log(postArray);
+    // for (let singlePost of postArray) {
+    //     let {title, thumbnail, url} = post.data;
+
+    // }
 
     for (let i = 0; i <= 9; i++) {
         let newDiv = document.createElement("div");
@@ -84,3 +89,8 @@ const getReddit = async () => {
     };
 };
 getReddit();
+
+document.querySelector("button").addEventListener("click", () => {
+    sub = document.querySelector("input").value;
+    getReddit();
+});
