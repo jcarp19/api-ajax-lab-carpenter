@@ -48,7 +48,9 @@
 // getjoke();
 // // getJoke2();
 // getJoke3();
-let sub = document.querySelector("input").value;
+// let sub = document.querySelector("input").value;
+
+let sub = "aww";
 
 // let link = fetch("https://www.reddit.com/r/aww/.json");
 let link = fetch(`https://www.reddit.com/r/${sub}/.json`);
@@ -90,7 +92,18 @@ const getReddit = async () => {
 };
 getReddit();
 
-document.querySelector("button").addEventListener("click", () => {
-    sub = document.querySelector("input").value;
-    getReddit();
-});
+const submitForm = (event) => {
+    
+    event.preventDefault();
+
+    sub = document.querySelector("button").value;
+    
+    // const formData = new FormData(document.querySelector("form"));
+    // console.log(formData);
+    // const newSub = formData.get("subName"); 
+    // console.log(newSub).innerText;
+        
+};
+// document.querySelector("button").addEventListener("click", () => {
+//     submitform();
+// });
